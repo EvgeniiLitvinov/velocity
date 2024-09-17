@@ -83,7 +83,7 @@ p {
   text-align: center;
 
   background-color: #241c1c;
-  background-image: url('/img/welcome-bg.jpg');
+  background-image: url('./img/welcome-bg.jpg');
   background-size: cover;
   background-position: center;
 }
