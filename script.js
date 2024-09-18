@@ -15,6 +15,9 @@ function showTab (index) {
     tabsBtns[index].classList.add('active')
 }
 
+hideTabs()
+showTab(0)
+
 
 
 tabsBtns.forEach((btn, index) => btn.addEventListener('click', () => {
@@ -38,4 +41,35 @@ anchors.forEach(anc => {
             behavior: 'smooth'
         })
     })
+})
+
+
+// Модальное окно
+
+const popupBtn = document.querySelector('.link-primary')
+const popup = document.querySelector('.modal')
+const closeBtn = document.querySelector('.popup-close')
+const modalBox = document.querySelector('.modal .modal__box')
+
+popupBtn.addEventListener('click', function() {
+    popup.classList.add('open')
+})
+
+closeBtn.addEventListener('click', function() {
+    popup.classList.remove('open')
+})
+
+window.addEventListener('keydown', function(e) {
+    if (e.key == 'Escape') {
+        popup.classList.remove('open')
+    }
+})
+
+document.querySelector('.modal .modal__box').addEventListener('click', function(e) {
+    e._isClickWithInModal = true
+})
+
+popup.addEventListener('click', function (e) {
+    if (e._isClickWithInModal) return
+    e.currentTarget.classList.remove('open')
 })
